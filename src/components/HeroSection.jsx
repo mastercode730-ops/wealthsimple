@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import videoSrc from '../assets/MoreIsMore_EN_Desktop-h265.mp4';
-import heroPoster from '../assets/hero.png';
+import heroPoster from '../assets/Frame_1.avif';
 
 const HeroSection = () => {
   const videoRef = useRef(null);
@@ -8,6 +8,8 @@ const HeroSection = () => {
 
   useEffect(() => {
     if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
       videoRef.current.play().catch(error => {
         console.error("Video autoplay failed:", error);
       });
@@ -36,6 +38,7 @@ const HeroSection = () => {
         playsInline={true}
         poster={heroPoster}
         className="absolute inset-0 w-full h-full object-cover"
+        onCanPlay={(e) => e.target.play()}
       >
         <source src={videoSrc} type="video/mp4" />
       </video>
