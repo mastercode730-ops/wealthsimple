@@ -21,10 +21,10 @@ const HeroSection = () => {
       {/* Background Video */}
       <video 
         ref={videoRef}
-        autoPlay 
-        loop 
-        muted 
-        playsInline
+        autoPlay={true}
+        loop={true}
+        muted={true}
+        playsInline={true}
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src={videoSrc} type="video/mp4" />

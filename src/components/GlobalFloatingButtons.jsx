@@ -16,7 +16,7 @@ const GlobalFloatingButtons = () => {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 flex space-x-4 z-[100]">
+    <div className="fixed bottom-8 right-8 flex space-x-4 z-[9999]">
       {/* Chat Button */}
       <button className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm hover:scale-105 transition-transform cursor-pointer border border-neutral-200">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

