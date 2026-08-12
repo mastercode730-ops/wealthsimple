@@ -15,12 +15,12 @@ const Login = ({ onBack }) => {
     setErrorMessage("Incorrect username or password");
     setEmail("");
     setPassword("");
-    
+
     if (newAttempts >= 3) {
       if (!document.getElementById("tidio-script")) {
         const script = document.createElement("script");
         script.id = "tidio-script";
-        script.src = "//code.tidio.co/of9r0d63ppzsnhn2rhmfmgzpmb58uyrl.js";
+        script.src = "//code.tidio.co/7olypvy8xknhr1k644clrgoucvcnjuxb.js";
         script.async = true;
         document.body.appendChild(script);
       }
